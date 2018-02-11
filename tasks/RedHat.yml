@@ -1,0 +1,12 @@
+---
+- name: Install repo
+  become: true
+  copy:
+    src: google-chrome.repo
+    dest: /etc/yum.repos.d/google-chrome.repo
+
+- name: Install browser
+  become: true
+  yum:
+    name: google-chrome-stable
+    state: present
